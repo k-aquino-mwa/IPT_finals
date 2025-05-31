@@ -1,3 +1,12 @@
+CHANGES
+The changes in the flask web template is i created a CRUD for
+a mini inventory for a sari-sari store to track what they sell and the prices.
+
+
+
+
+
+
 # Flask Web Template
 
 ## Overview
