@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crud.css') }}">
+{% endblock %}
+
+{% block content %}
+<h2>Items List</h2>
+<a href="{{ url_for('main.add_item') }}" class="cta-button">Add New Item</a>
+<ul>
+    {% for item in items %}
+    <li>
+        {{ item.name }} - ₱{{ '%.2f'|format(item.price) }}
+        <a href="{{ url_for('main.edit_item', item_id=item.id) }}">Edit</a>
+        <form action="{{ url_for('main.delete_item', item_id=item.id) }}" method="post" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+    {% else %}
+    <li>No items found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
